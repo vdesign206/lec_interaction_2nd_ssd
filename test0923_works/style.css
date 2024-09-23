@@ -4,6 +4,7 @@
     --color-light-white: #eee;
     --color-dark-white: #bdbdbd;
     --color-pink: #fe918d;
+
     --color-dark-pink: #ff6863;
     --color-dark-grey: #4d4d4d;
     --color-grey: #616161;
@@ -124,18 +125,48 @@ button {
     margin: 40px;
 }
 .category__btn {
-    border: 1px solid #bdbdbd;
+    border: 1px solid var(--color-dark-white);
     border-radius: 5px;
-    font-size: 18px;
+    font-size: var(--font-regular);
     padding: 8px 48px;
     margin-bottom: 5px;
 }
 .category__btn.selected,
 .category__btn:hover {
-    background-color: skyblue;
+    background-color: var(--color-pink);
+    color: var(--color-white);
 }
 
+.category__btn.selected .category__count,
+.category__btn:hover .category__count {
+    opacity: 1;
+    top: 0;
+}
 
 .category__count {
     background-color: #feb546;
+    border-radius: 50%;
+    color: var(--color-white);
+    width: 24px;
+    height: 24px;
+    line-height: 24px;
+    display: inline-block;
+    position: relative;
+    top: -20px;
+    left: 4px;
+    opacity: 0;
+    transition: 0.3s;
+}
+
+.work__projects {
+    /* background-color: skyblue; */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    opacity: 1;
+    transition: 0.3s;
+}
+.work__projects.anim-out {
+    opacity: 0;
+    transform: scale(0.96) translateY(40px);
 }
