@@ -73,49 +73,49 @@
                 <a href="#" class="project" target="_blank" data-type="visual">
                     <img src="images/stu02.png" alt="" class="project__img" >
                     <div class="project__description">
-                        <h3>Stu01 Portfolio</h3>
+                        <h3>Stu02 Portfolio</h3>
                         <span>Promotion Design</span>
                     </div>
                 </a>
                 <a href="#" class="project" target="_blank" data-type="visual">
                     <img src="images/stu03.png" alt="" class="project__img" >
                     <div class="project__description">
-                        <h3>Stu01 Portfolio</h3>
+                        <h3>Stu03 Portfolio</h3>
                         <span>Promotion Design</span>
                     </div>
                 </a>
                 <a href="#" class="project" target="_blank" data-type="web">
                     <img src="images/stu04.png" alt="" class="project__img" >
                     <div class="project__description">
-                        <h3>Stu01 Portfolio</h3>
+                        <h3>Stu04 Portfolio</h3>
                         <span>Promotion Design</span>
                     </div>
                 </a>
                 <a href="#" class="project" target="_blank" data-type="web">
                     <img src="images/stu05.png" alt="" class="project__img" >
                     <div class="project__description">
-                        <h3>Stu01 Portfolio</h3>
+                        <h3>Stu05 Portfolio</h3>
                         <span>Promotion Design</span>
                     </div>
                 </a>
                 <a href="#" class="project" target="_blank" data-type="web">
                     <img src="images/stu06.png" alt="" class="project__img" >
                     <div class="project__description">
-                        <h3>Stu01 Portfolio</h3>
+                        <h3>Stu06 Portfolio</h3>
                         <span>Promotion Design</span>
                     </div>
                 </a>
                 <a href="#" class="project" target="_blank" data-type="motion">
                     <img src="images/stu07.png" alt="" class="project__img" >
                     <div class="project__description">
-                        <h3>Stu01 Portfolio</h3>
+                        <h3>Stu07 Portfolio</h3>
                         <span>Promotion Design</span>
                     </div>
                 </a>
                 <a href="#" class="project" target="_blank" data-type="motion">
                     <img src="images/stu08.png" alt="" class="project__img" >
                     <div class="project__description">
-                        <h3>Stu01 Portfolio</h3>
+                        <h3>Stu08 Portfolio</h3>
                         <span>Promotion Design</span>
                     </div>
                 </a>
@@ -188,6 +188,23 @@
         workBtnContainer.addEventListener('click', (e) => {
             const filter = e.target.dataset.filter || e.target.parentNode.dataset.filter;
             console.log(filter);
+            if(filter == null) {
+                return;
+            }
+
+            const active = document.querySelector('.category__btn.selected');
+            active.classList.remove('selected');
+            const target = e.target.nodeName === 'BUTTON' ? e.target : e.target.parentNode;
+            target.classList.add('selected');
+
+            projectContainer.classList.add('anim-out');
+            setTimeout(() => {
+
+
+
+                projectContainer.classList.remove('anim-out');
+
+            }, 300)
 
         })
 
