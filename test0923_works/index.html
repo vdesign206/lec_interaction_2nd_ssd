@@ -16,11 +16,11 @@
         <div class="container">
             <div class="btns__bgcolor"></div>
             <div class="btns__menu">
-                <button class="btn home">Home</button>
-                <button class="btn about">About</button>
-                <button class="btn skills">Skills</button>
-                <button class="btn works">Works</button>
-                <button class="btn contact">Contact</button>
+                <button class="btn home" data-link="#home">Home</button>
+                <button class="btn about" data-link="#about">About</button>
+                <button class="btn skills" data-link="#skills">Skills</button>
+                <button class="btn works" data-link="#works">Works</button>
+                <button class="btn contact" data-link="#contact">Contact</button>
             </div>
         </div>
     </div>
@@ -139,32 +139,44 @@
 
 
     <script>
-        const btnHome = document.querySelector('.home');
-        const sectionHome = document.querySelector('#home');
-        btnHome.addEventListener('click', function() {
-            sectionHome.scrollIntoView({behavior:"smooth",block:"center"});
-        });
+        // const btnHome = document.querySelector('.home');
+        // const sectionHome = document.querySelector('#home');
+        // btnHome.addEventListener('click', function() {
+        //     sectionHome.scrollIntoView({behavior:"smooth",block:"center"});
+        // });
 
-        const btnabout = document.querySelector('.about');
-        const sectionabout = document.querySelector('#about');
-        btnabout.addEventListener('click', function() {
-            sectionabout.scrollIntoView({behavior:"smooth",block:"center"});
-        });
-        const btnskills = document.querySelector('.skills');
-        const sectionskills = document.querySelector('#skills');
-        btnskills.addEventListener('click', function() {
-            sectionskills.scrollIntoView({behavior:"smooth",block:"center"});
-        });
-        const btnworks = document.querySelector('.works');
-        const sectionworks = document.querySelector('#works');
-        btnworks.addEventListener('click', function() {
-            sectionworks.scrollIntoView({behavior:"smooth",block:"center"});
-        });
-        const btncontact = document.querySelector('.contact');
-        const sectioncontact = document.querySelector('#contact');
-        btncontact.addEventListener('click', function() {
-            sectioncontact.scrollIntoView({behavior:"smooth",block:"center"});
-        });
+        // const btnabout = document.querySelector('.about');
+        // const sectionabout = document.querySelector('#about');
+        // btnabout.addEventListener('click', function() {
+        //     sectionabout.scrollIntoView({behavior:"smooth",block:"center"});
+        // });
+        // const btnskills = document.querySelector('.skills');
+        // const sectionskills = document.querySelector('#skills');
+        // btnskills.addEventListener('click', function() {
+        //     sectionskills.scrollIntoView({behavior:"smooth",block:"center"});
+        // });
+        // const btnworks = document.querySelector('.works');
+        // const sectionworks = document.querySelector('#works');
+        // btnworks.addEventListener('click', function() {
+        //     sectionworks.scrollIntoView({behavior:"smooth",block:"center"});
+        // });
+        // const btncontact = document.querySelector('.contact');
+        // const sectioncontact = document.querySelector('#contact');
+        // btncontact.addEventListener('click', function() {
+        //     sectioncontact.scrollIntoView({behavior:"smooth",block:"center"});
+        // });
+
+        const btnsMenu = document.querySelector('.btns__menu');
+        btnsMenu.addEventListener('click', (e) => {
+            const target = e.target;
+            const link = target.dataset.link;
+            console.log(link);
+            if ( link == null ) {
+                return;
+            }
+            const scrollTo = document.querySelector(link);
+            scrollTo.scrollIntoView({behavior:"smooth", block:"start"});
+        })
 
         const arrowUp = document.querySelector('.arrow-up');
         document.addEventListener('scroll', function() {
@@ -178,7 +190,6 @@
         arrowUp.addEventListener('click', function() {
             sectionHome.scrollIntoView({behavior:"smooth",block:"center"});
         });
-
 
         //projects
         const workBtnContainer = document.querySelector('.work__categories');
@@ -199,7 +210,6 @@
 
             projectContainer.classList.add('anim-out');
             setTimeout(() => {
-
                 projects.forEach((project)=>{
                     if(filter === '*' || filter === project.dataset.type) {
                         project.classList.remove('invisible');
@@ -207,16 +217,9 @@
                         project.classList.add('invisible');
                     }
                 })
-
-
                 projectContainer.classList.remove('anim-out');
-
             }, 300)
-
         })
-
-
-
 
     </script>
 </body>
