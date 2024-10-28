@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    .box {
+      width: 100px;
+      height: 100px;
+      background-color: orange;
+      transition: .3s;
+    }
+    .left {
+      transform-origin: top left;
+    }
+    .right{
+      transform-origin: top right;
+    }
+    .box:hover {
+      transform : scaleX(2);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="box left"></div>
+    <div class="box right"></div>
+  </div>
+  
+</body>
+</html>
