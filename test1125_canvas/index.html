@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      overflow: hidden;
+    }
+    #canvas1 {
+      position: absolute;
+      /* border: 1px solid black; */
+      background-color: skyblue;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+
+    }
+  </style>
+</head>
+<body>
+  <canvas id="canvas1"></canvas>
+  <script>
+    const canvas = document.querySelector('#canvas1');
+    const ctx = canvas.getContext('2d');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    let size = 0;
+    let positionX = 300;
+    let positionY = 300;
+    let angle = 0;
+
+
+    function drawFlower() {
+      ctx.fillStyle = '#f0a07b';
+      ctx.strokeStyle = '#4a274f';
+      ctx.lineWidth = 5;
+      ctx.beginPath();
+      ctx.arc(positionX, positionY, size, 0, Math.PI * 2);
+      ctx.closePath();
+      ctx.fill();
+      ctx.stroke();
+    }
+
+    function animate() {
+      // ctx.clearRect(0, 0, canvas.width, canvas.height);
+      size += 0.05;
+      positionX += 5 * Math.sin(angle);
+      positionY += 5 * Math.cos(angle);
+      angle += 0.1;
+
+      drawFlower();
+      requestAnimationFrame(animate);
+    }
+
+    animate();
+
+
+  </script>
+  
+</body>
+</html>
