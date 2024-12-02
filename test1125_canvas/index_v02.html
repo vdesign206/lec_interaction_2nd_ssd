@@ -32,24 +32,29 @@
     let number = 0;
     let scale = 10;
     let size = 0;
+    // let lineWidth = 0;
+    let hue = 0;
 
 
     function drawFlower() {
-      let angle = number * 1;
-      let radius =   1.5*scale * Math.sqrt(number);
+      let angle = number * 0.01;
+      let radius =   scale * Math.sqrt(number);
       let positionX = radius * Math.cos(angle) + canvas.width/2;
       let positionY = radius * Math.sin(angle) + canvas.height/2;
 
       ctx.fillStyle = '#f0a07b';
-      ctx.strokeStyle = '#4a274f';
-      ctx.lineWidth = 1;
+      // ctx.strokeStyle = '#4a274f';
+      ctx.strokeStyle = 'hsla('+hue+', 40%, 40%, 1)';
+      ctx.lineWidth = 0.2;
       ctx.beginPath();
       ctx.arc(positionX, positionY, size, 0, Math.PI * 2);
       ctx.closePath();
-      ctx.fill();
+      // ctx.fill();
       ctx.stroke();
-      size += 0.01;
-      number += 0.01;
+      size += 0.5;
+      number += 1;
+      // lineWidth +=0.001;
+      hue += 0.1;
     }
 
     function animate() {
